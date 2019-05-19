@@ -1,0 +1,42 @@
+
+#main {
+    display: grid;
+    grid-template-columns: 30% 70%;
+    background-color: #eee;
+    color: #1D1D1D;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+#heading {
+    grid-column: 1 / 3;
+    text-align: center;
+    margin: 10px;
+}
+
+#img-div {
+    display: grid;
+    grid-template-columns: 100%;
+    justify-items: center;
+    text-align: center;
+    margin: 10px;
+    padding: 0px 10px 10px 10px;
+    align-self: start;
+    background-color: #fff;
+}
+
+#image {
+    padding: 10px;
+    width: 100%;
+}
+
+#tribute-info {
+    margin: 10px;
+
+}
+
+#footer {
+    grid-column: 1 / 3;
+    margin: 10px;
+    padding: 10px;
+    text-align: center;
+}
