@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <title>Survey Form</title>
+</head>
+
+<body class="container"> 
+  <H1 id="title">How Bad Was Game of Thrones Season 8?</H1>
+  <main>
+    <p id="description">
+      Just how disappointing was Game of Thrones season 8? Over one million people have signed a petition at <a
+        href="https://www.change.org/p/hbo-remake-game-of-thrones-season-8-with-competent-writers" target="_blank">Change.org</a>
+      demanding a remake of season 8. Tell me just how bad you thought season 8 was in this survey!
+    </p>
+
+    
+    <form id="survey-form">
+       <div class="container">
+      <div class="desc"><label for="name" id="name-label">Your Full Name: </label></div>
+      <div class="input-field"><input type="text" id="name" name="name" placeholder="John Snow" required></div>
+      <div class="desc"><label for="email" id="email-label">Your Email: </label></div>
+      <div class="input-field"><input type="email" id="email" name="email" placeholder="john.snow@winterfell.com"
+          required></div>
+
+      <div class="desc"><label for="number" id="number-label">On a scale from 1 to 10, with 1 being the worst, and 10
+          being the best, how
+          would you rate this season? </label></div>
+      <div class="input-field"><input type="number" id="number" name="number" min="1" max="6" placeholder="1"></div>
+
+      <div class="desc"><label for="dropdown" id="dropdown-label">What episode of season 8 is the absolute worst in your
+          opinion? </label></div>
+      <div class="input-field"><select id="dropdown" name="dropdown">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+        </select></div>
+
+      <div class="desc">Which house do you think was the most underwhelming during season 8?</div>
+      <div class="input-field">
+        <input type="radio" name="radio-btn" value="Stark">House Stark <br>
+        <input type="radio" name="radio-btn" value="Lannister">House Lannister <br>
+        <input type="radio" name="radio-btn" value="Targaryen">House Targaryen <br>
+        <input type="radio" name="radio-btn" value="Baratheon">House Baratheon <br>
+        <input type="radio" name="radio-btn" value="Tyrell">House Tyrell <br>
+        <input type="radio" name="radio-btn" value="Martell">House Martell <br>
+        <input type="radio" name="radio-btn" value="Greyjoy">House Greyjoy <br>
+        <input type="radio" name="radio-btn" value="Arryn">House Arryn <br>
+      </div>
+
+      <div class="desc">Who do you think should be sitting on the iron throne at the end of the series?</div>
+      <div class="input-field">
+        <label for="A"><input id="checky" type="checkbox" name="A" value="John Snow"> John Snow</label><br>
+        <label for="A"><input id="checky" type="checkbox" name="A" value="Daenerys Targaryen"> Daenerys
+          Targaryen</label><br>
+        <label for="B"><input id="checky" type="checkbox" name="B" value="Gendry Baratheon">Gendry Baratheon</label><br>
+        <label for="C"><input id="checky" type="checkbox" name="C" value="Bran Stark">Bran Stark</label><br>
+        <label for="D"><input id="checky" type="checkbox" name="D" value="Sansa Stark"> Sansa Stark</label><br>
+        <label for="E"><input id="checky" type="checkbox" name="Cersei Lannister" value="None">Cercei
+          Lannister</label><br>
+        <label for="E"><input id="checky" type="checkbox" name="None" value="None">None of them!</label><br><br>
+      </div>
+
+      <div class="desc">Well then how do you think that the series should have went?</div>
+      <div class="input-field">
+        <textarea rows="3" cols="30">
+    You know what really grinds my gears...
+    </textarea>
+      </div>
+
+      <div class="desc">Thanks for your input, hit the button to submit your opinion:</div>
+      <div id="submit-div"><input type="submit" id="submit"></div>
+    </div>
+    </form>
+    
+  </main>
+</body>
+
+</html>
