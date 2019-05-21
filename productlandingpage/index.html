@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Nick's Online Nursery</title>
+</head>
+
+
+<header id="header" class="flex-container">
+    <div><img id="header-img" src="fleur-de-lis.png" alt="company logo"></div>
+    <div>
+        <h1 id="header-title">Nick's Nursery</h1>
+    </div>
+    <nav id="nav-bar" class="flex-container">
+        <a href="#medicinal" class="nav-link">Medicinal Herbs</a>
+        <a href="#culinary" class="nav-link">Culinary Herbs</a>
+        <a href="#fruiting" class="nav-link">Fruiting Plants</a>
+    </nav>
+</header>
+
+<main>
+    <div class=flex-container>
+        <div>
+            <h2>Hard to find herbs and fruiting plants, straight to you!</h2>
+            <h3>100% Satisfaction Guarantee!</h3>
+            If you aren't 100% satisfied, you get a replacement or 100% refund of any item you are dissatisfied with.
+            <h3>Fast Delivery!</h3>
+            Plants are packed and shipped in 48 hours, and shipped USPS Priority Mail!
+            <h3>We accept Bitcoin!</h3>
+            As well as Paypal, Visa and Mastercard!
+        </div>
+
+        <div id="video-container">
+            <iframe id="video" src="https://www.youtube.com/embed/qbYbI-uGEyg" frameborder="0"
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+        </div>
+        <div class="flex-container">
+            <div class="box-item" id="medicinal">
+                Medicinal Herbs
+            </div>
+            <div class="box-item" id="culinary">
+                Culinary Herbs
+            </div>
+            <div class="box-item" id="fruiting">
+                Fruiting Plants
+            </div>
+        </div>
+        <div>
+            <form id="form" action="https://www.freecodecamp.com/email-submit">
+                <fieldset>
+                    <label for="email">Enter your email for updates on new plant availablility: </label>
+                    <input type="email" id="email" name="email" placeholder="email@example.com">
+                    <input type="submit" id="submit" value="submit">
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</main>
+
+</html>
