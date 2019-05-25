@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Greenhouse HVAC Documentation</title>
+</head>
+<main id="main-doc">
+    <header>
+        <h1>Greenhouse HVAC Documentation</h1>
+        <span>Arduino based HVAC system for a small hobby greenhouse.</span>
+        <ul>
+            <li>Features</li>
+            <li>Installation</li>
+            <li>Parts</li>
+            <li>Included Libraries</li>
+            <li>How It Works</li>
+            <li>Wiring</li>
+            <li>Code</li>
+    </header>
+    <section id="features" class="main-section">
+        <header>
+            <h2>Features</h2>
+        </header>
+        <ul>
+            <li>Brings precise climate control to a hobby greenhouse while minimizing cost,
+                and using easily sourced parts</li>
+            <li>Ability to individually control root zone temperature of individual benches
+                as well as separate hydroponic reservoirs</li>
+            <li>Adruino based system allows for expansion for marginal extra cost.
+                Possible expansion to (but not yet implemented):</li>
+            <ul>
+                <li>Dalogging</li>
+                <li>Supplemental light control</li>
+                <li>Additional sensors such as PAR or leaf wetness</li>
+                <li>Additional heat zones or radiator heater</li>
+                <li> Advanced HVAC logic</li>
+                <li>Nutrient control (measurement and dosing)</li>
+            </ul>
+        </ul>
+    </section>
+    <section id="installation" class="main-section">
+        <header>
+            <h2>Installation</h2>
+        </header>
+        <ul>
+            <li>Download or clone repository</li>
+            <li>Extract and upload greenhouseHVAC.ino to Arduino</li>
+        </ul>
+        The following libraries must be included for the program to compile:
+        <ul>
+            <li>DHT.h</li>
+            <li>Adafruit Unified Sensor Library (DHT.h is dependant on this library to function)</li>
+            <li>OneWire.h</li>
+            <li>DallasTemperature.h</li>
+        </ul>
+    </section>
+    <section id="parts" class="main-section">
+        <header>Parts</header>
+        <ul>
+            <li>Arduino Uno or generic uno based board</li>
+            <li>16 channel relay moduel</li>
+            <li>4 channel relay module</li>
+            <li>12 volt power supply</li>
+            <li>DS18B20 waterproof temperatuer sensors</li>
+            <li>DHT11 temperature and humidity sensors</li>
+        </ul>
+    </section>
+    <section id="how-it-works" class="main-section">
+        <header>
+            <h2>How It Works</h2>
+        </header>
+        <p>The Arduino based HVAC utilizes common household heating and cooling parts to create an easily accessible
+            and affordable heating and cooling system for a hobby greenhouse.
+        </p>
+        <p>For cooling air intake a digitally controlled
+            evaporative cooler was stripped of its controls, and is managed by the arduino. The evaporative cooler
+            utilizes
+            a 120VAC three speed fan and recirculating water pump, both of which are now conrolled by the arduino. The
+            arduino
+            controls HI, MED, LOW, and OFF on the fan, and turns the recirculating water pump on and off based on the
+            temperature set points.
+            The four module relay board that conrols the AC voltage is remoteley placed on the evaporative cooler and
+            not inside the arduino
+            enclosure, minimizing exposure to mains voltage. Cooling exhaust is currently using a standard box fan also
+            controlled by cooling
+            set points. Linear acutators can also be implemented to open and shut the roof vents rather than using an
+            exhaust fan.
+
+        </p>
+        <p>For heating the greenhouse uses an inexpensive manually controlled instant hot water heater and large
+            reservoir (currently a food
+            insulating cooler) to supply hot water to the growing benches. The Arduino controls a small DC water pump
+            that pushes coolant through
+            the hot water heater and keep the heat reservoir at a specified temperature. Individual water pumps are used
+            to pump coolant from the reservoir
+            and divert coolant through
+            separate heating zones, including growing benches and a hydroponic nutrient reservoir to maintain
+            individually specified set points. Each
+            heat zone is measured by a DS18B20 waterproof digital temperature sensor. Plumbing is PEX tubing, and grow
+            benches ran with internal PEX
+            tubing and benches filled with sand. Plastic sheeting is placed on top of the growing bench, and plants are
+            placed on top of the plastic sheeting.
+            No plant roots are directly exposed to heat tubing to minimize any root damage via heat.
+        </p>
+        <p>Currently no datalogging capabilities or remote communication has been implemented. The current configuration
+            occupies almost all I/O ports on the
+            UNO. Datalogging and remote communication are currently implemented with an external computer connected via
+            USB. There is no immediate concern to
+            incorporate these into the UNO, an external computer still has an advantage over the UNO with versatility,
+            communication options and heavy data processing
+            capabilities.
+        </p>
+    </section>
+
+    <section id="wiring" class="main-section">
+        <header>
+            <h2>Wiring</h2>
+        </header>
+        <h3>Arduino Output Connections</h3>
+        <span>All outputs are connected on the DIGITAL (PWM~) I/O side:
+            <ol start="0">
+                <li>no connection</li>
+                <li>no connection</li>
+                <li>Heat Zone 1 relay</li>
+                <li>Heat Zone 2 relay</li>
+                <li>Heat Zone 3 relay</li>
+                <li>Heat Zone 4 relay</li>
+                <li>Heat Zone 5 relay</li>
+                <li>Exhaust vent actuator (open) relay</li>
+                <li>Exhaust vent actuator (close) relay</li>
+                <li>Evaporative cooling water pump relay</li>
+                <li>High speed cooling fan relay</li>
+                <li>Medium speed cooling fan relay</li>
+                <li>Low speed cooling fan relay</li>
+                <li>no connection</li>
+            </ol>
+
+            <h3>Arduino Input Connection</h3>
+            <span>All input connections are made on the ANALOG IN input side:</span>
+            <ol start="0">
+                <li>Electrical enclosure temperature DHT sensor</li>
+                <li>Greenhouse temperature DHT sensor</li>
+                <li>Outdoor ambient temperature DHT sensor</li>
+                <li>All heat zone DS18B20 sensors</li>
+                <li>Evaporative cooler low water sensor</li>
+                <li>no connection</li>
+            </ol>
+
+            Note: With the exception of the DHT sensors, the inputs are not requried to be on the ANALOG IN side of the
+            board, but this made for a logical
+            arrangement of the sensor I/O. Any change of these connection locations would involve updating the code to
+            reflect the changes.
+
+    </section>
+
+
+    <section id="code" class="main-section">
+        <header>
+            <h2>Code</h2>
+        </header>
+
+    </section>
+</main>
+
+</html>
