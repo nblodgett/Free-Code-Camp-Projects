@@ -28,22 +28,21 @@
             <header>
                 <h2>Features</h2>
             </header>
+            <p>
+                An Arduino controlled greenhouse brings precise climate control to a hobby greenhouse while minimizing cost,
+                and using easily sourced parts.
+                Individually control root zone temperature of grow benches as well as separate hydroponic reservoirs.
+                An Adruino based system allows for expansion for marginal extra cost. Possible expansion to (but not yet implemented):
+            </p>
             <ul>
-                <li>Brings precise climate control to a hobby greenhouse while minimizing cost,
-                    and using easily sourced parts</li>
-                <li>Ability to individually control root zone temperature of individual benches
-                    as well as separate hydroponic reservoirs</li>
-                <li>Adruino based system allows for expansion for marginal extra cost.
-                    Possible expansion to (but not yet implemented):</li>
-                <ul>
-                    <li>Dalogging</li>
-                    <li>Supplemental light control</li>
-                    <li>Additional sensors such as PAR or leaf wetness</li>
-                    <li>Additional heat zones or radiator heater</li>
-                    <li> Advanced HVAC logic</li>
-                    <li>Nutrient control (measurement and dosing)</li>
-                </ul>
+                <li>Dalogging</li>
+                <li>Supplemental light control</li>
+                <li>Additional sensors such as PAR or leaf wetness</li>
+                <li>Additional heat zones or radiator heater</li>
+                <li> Advanced HVAC logic</li>
+                <li>Nutrient control (measurement and dosing)</li>
             </ul>
+
         </section>
         <section id="Installation" class="main-section">
             <header>
@@ -89,7 +88,7 @@
                 based on
                 the temperature set points.
                 The four module relay board that conrols the AC voltage is remoteley placed on the evaporative cooler
-                and not inside the arduino enclosure, minimizing exposure to mains voltage. Cooling exhaust is currently
+                and not inside the arduino enclosure, minimizing exposure to mains voltage. Air exhaust is currently
                 using a standard box fan
                 also controlled by cooling
                 set points. Linear acutators can also be implemented to open and shut the roof vents rather than using
@@ -126,6 +125,13 @@
                 communication options and heavy data processing
                 capabilities.
             </p>
+            <p>Some additional features are planned for the future.
+                An output to control an actuator that automatically refills the evaporative cooler when low on water is already in planning.
+                Plans to upgrade to an Arduino Mega to incorporate dataloggging and additional sensors is also likely.
+            </p>
+
+
+
         </section>
 
         <section id="Wiring" class="main-section">
@@ -133,6 +139,14 @@
                 <h2>Wiring</h2>
             </header>
             <h3>Arduino Output Connections</h3>
+            <p>Note: All attempts were made to remove 120VAC from the control enclosure. 
+                All 12VAC controlled relays are outside the main control enclosure. 
+                It's recommended that the 120VAC to 12VDC converter is placed in a secondary external enclosure, so that the entire enclosure is low voltage DC power. 
+                Doing this will minimize the possiblity that one is exposed to main AC voltage while working in the enclosure live. 
+                This is highly recommended, working around exposed 120VAC connections without proper electrical safety equipment is dangerous and against NEC guidelines.
+            </p>
+
+
             <span>All outputs are connected on the DIGITAL (PWM~) I/O side:
                 <ol start="0">
                     <li>no connection</li>
@@ -181,8 +195,7 @@
                 the
                 UNO
                 that
-                will display a connected device's address, <a
-                    href="https://github.com/milesburton/Arduino-Temperature-Control-Library">here is one on GitHub.</a>
+                will display a connected device's address, <a href="https://github.com/milesburton/Arduino-Temperature-Control-Library">here is one on GitHub.</a>
                 On line 56, replace the device address listed with the device addresses of the temperature sensors
                 to be used, following the same format:
             </p>
@@ -231,14 +244,15 @@
         // Set heating and cooling temperatures in degrees F<br>
         setPointArray[0] = 70; // Cooling Stage -1<br>
         </code><br>
-
-            There is a water heater shut off bypass implemented into the heating circuit. Typically the manually
-            controlled
-            instant how water heater
-            have a safety shut off if the unit runs for more than 10 minutes. A one minute cool down of the heater every
-            120
-            program cycles during heating
-            avoids an unwanted heater shutoff: <br>
+            <p>
+                There is a water heater shut off bypass implemented into the heating circuit. Typically the manually
+                controlled
+                instant how water heater
+                have a safety shut off if the unit runs for more than 10 minutes. A one minute cool down of the heater every
+                120
+                program cycles during heating
+                avoids an unwanted heater shutoff:
+            </p><br>
             <code>
         // Water heater shutoff bypass, turn OFF reservoir heater pump for 10 seconds every 10 minutes<br>
         void heaterCount() {<br>
@@ -250,16 +264,6 @@
                 &nbsp;count++;<br>
         }<br>
         </code>
-            <p></p>
-            <p></p>
-            <p></p>
-            <p></p>
-            <p></p>
-            <p></p>
-            <p></p>
-            <p></p>
-            <p></p>
-            <p></p>
         </section>
     </div>
 </main>
